@@ -2,5 +2,5 @@ git:
   pagers:
     - externalDiffCommand: 'delta-diff.bat --side-by-side'
     - externalDiffCommand: 'delta-diff.bat --no-side-by-side'
-    - externalDiffCommand: difft --color=always --parse-error-limit=20
-    - externalDiffCommand: difft --color=always --display=inline --parse-error-limit=20
+    - externalDiffCommand: difft --color=always --parse-error-limit=80
+    - externalDiffCommand: difft --color=always --display=inline --parse-error-limit=80
