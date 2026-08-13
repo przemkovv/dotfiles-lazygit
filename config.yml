@@ -1,6 +1,50 @@
+gui:
+  filterMode: fuzzy
+  nerdFontsVersion: "3"
+  showFileIcons: true
+  showFileTree: true
+  showRootItemInFileTree: true
+  fileTreeSortOrder: foldersFirst
+  showNumstatInFilesView: true
+  showDivergenceFromBaseBranch: arrowAndNumber
+  showCommandLog: true
+  fileTreeSortCaseSensitive: false
+  branchColorPatterns:
+    '^feature/': '#61afef'
+    '^integration/': '#319faf'
+    '^bugfix/': '#e06c75'
+    '^hotfix/': '#ff5555'
+    '^release/': '#c678dd'
+    '^chore/': '#98c379'
+
 git:
-  pagers:
-    - externalDiffCommand: 'delta-diff.bat --side-by-side'
-    - externalDiffCommand: 'delta-diff.bat --no-side-by-side'
-    - externalDiffCommand: difft --color=always --parse-error-limit=80
-    - externalDiffCommand: difft --color=always --display=inline --parse-error-limit=80
+  branchPrefix: "feature/"
+  diffContextSize: 8
+  ignoreWhitespaceInDiffView: false
+  renameSimilarityThreshold: 50
+  diffRenderers:
+    - name: delta side-by-side
+      command: "delta-diff.bat --side-by-side"
+      type: extDiff
+
+    - name: delta inline
+      command: "delta-diff.bat --no-side-by-side"
+      type: extDiff
+
+    - name: difftastic
+      command: difft --color=always --parse-error-limit=80
+      type: extDiff
+
+    - name: difftastic inline
+      command: difft --color=always --display=inline --parse-error-limit=80
+      type: extDiff
+
+    - name: lazygit default
+      type: rawGit
+
+  log:
+    order: topo-order
+    showGraph: always
+    showWholeGraph: false
+  localBranchSortOrder: recency
+  remoteBranchSortOrder: date
