@@ -32,11 +32,11 @@ git:
       type: extDiff
 
     - name: difftastic
-      command: difft --color=always --parse-error-limit=80
+      command: difft --color=always --parse-error-limit=80 --syntax-highlight on
       type: extDiff
 
     - name: difftastic inline
-      command: difft --color=always --display=inline --parse-error-limit=80
+      command: difft --color=always --display=inline --parse-error-limit=80 --syntax-highlight on
       type: extDiff
 
     - name: lazygit default
