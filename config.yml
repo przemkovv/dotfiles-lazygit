@@ -9,14 +9,14 @@ gui:
   showDivergenceFromBaseBranch: arrowAndNumber
   showCommandLog: true
   fileTreeSortCaseSensitive: false
-  branchColorPatterns:
-    '^feature/': '#61afef'
-    '^integration/': '#319faf'
-    '^bugfix/': '#e06c75'
-    '^hotfix/': '#ff5555'
-    '^release/': '#c678dd'
-    '^chore/': '#98c379'
-
+  theme:
+    branchColorPatterns:
+      "^feature/": "#61afef"
+      "^integration/": "#319faf"
+      "^bugfix/": "#e06c75"
+      "^hotfix/": "#ff5555"
+      "^release/": "#c678dd"
+      "^chore/": "#98c379"
 git:
   branchPrefix: "feature/"
   diffContextSize: 8
@@ -24,24 +24,17 @@ git:
   renameSimilarityThreshold: 50
   diffRenderers:
     - name: delta side-by-side
-      command: "delta-diff.bat --side-by-side"
-      type: extDiff
-
+      command: delta --paging=never --width={{width}} --line-numbers --side-by-side --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
     - name: delta inline
-      command: "delta-diff.bat --no-side-by-side"
-      type: extDiff
-
+      command: delta --paging=never --width={{width}} --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
     - name: difftastic
-      command: difft --color=always --parse-error-limit=80 --syntax-highlight on
+      command: difft --color=always --parse-error-limit=80 --context={{diffContext}} --syntax-highlight on
       type: extDiff
-
     - name: difftastic inline
-      command: difft --color=always --display=inline --parse-error-limit=80 --syntax-highlight on
+      command: difft --color=always --display=inline --parse-error-limit=80 --context={{diffContext}} --syntax-highlight on
       type: extDiff
-
     - name: lazygit default
       type: rawGit
-
   log:
     order: topo-order
     showGraph: always
